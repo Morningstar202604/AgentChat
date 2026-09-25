@@ -1,0 +1,6 @@
+# 复制本文件为 local.properties 并填入真实值（local.properties 已被 gitignore，不会入库）
+sdk.dir=/path/to/android-sdk
+storeFile=/path/to/your.keystore
+storePassword=your_store_password
+keyAlias=your_key_alias
+keyPassword=your_key_password

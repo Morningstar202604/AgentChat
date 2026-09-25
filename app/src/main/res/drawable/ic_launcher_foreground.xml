@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Launcher icon foreground — Phase 0 placeholder.
+  Phase 5 will replace with the final brand logo (chat bubble + "A" mark).
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- White chat bubble -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,28 h48 a12,12 0 0 1 12,12 v22 a12,12 0 0 1 -12,12 H54 l-14,14 v-14 h-10 a12,12 0 0 1 -12,-12 V40 a12,12 0 0 1 12,-12 z" />
+    <!-- Three indigo dots (typing indicator) -->
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M42,42 m0,-3.5 a3.5,3.5 0 1 1 0,7 a3.5,3.5 0 1 1 0,-7" />
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M54,42 m0,-3.5 a3.5,3.5 0 1 1 0,7 a3.5,3.5 0 1 1 0,-7" />
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M66,42 m0,-3.5 a3.5,3.5 0 1 1 0,7 a3.5,3.5 0 1 1 0,-7" />
+</vector>
