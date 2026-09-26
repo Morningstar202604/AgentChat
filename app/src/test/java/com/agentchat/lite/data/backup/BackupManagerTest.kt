@@ -34,8 +34,8 @@ class BackupManagerTest {
     @Test
     fun `export produces valid v2 json`() = runTest {
         val agent = AgentEntity(
-            id = "general", name = "通用助手", emoji = "💬",
-            systemPrompt = "你好", model = "", toolsEnabled = true, isBuiltin = true,
+            id = "general", name = "通用助手", icon = "SmartToy",
+            systemPrompt = "你好", model = "", toolsEnabled = """["calculate"]""", isBuiltin = true,
         )
         val conv = ConversationEntity(
             id = "c1", title = "测试", agentId = "general",
@@ -137,7 +137,8 @@ class BackupManagerTest {
         assertEquals(1, insertedAgents[0].size)
         assertEquals("general", insertedAgents[0][0].id)
         assertEquals("你是助手", insertedAgents[0][0].systemPrompt)
-        assertTrue(insertedAgents[0][0].toolsEnabled)
+        // v1 的 tools=true 迁移为默认工具列表（JSON 数组字符串）
+        assertEquals("""["get_current_time","calculate"]""", insertedAgents[0][0].toolsEnabled)
         assertTrue(insertedAgents[0][0].isBuiltin)
 
         // 验证 conversations 迁移：convs → conversations, ts → createdAt/updatedAt
@@ -189,8 +190,8 @@ class BackupManagerTest {
     @Test
     fun `export then import round trip preserves data`() = runTest {
         val agent = AgentEntity(
-            id = "coder", name = "编程助手", emoji = "👨‍💻",
-            systemPrompt = "写代码", toolsEnabled = true, isBuiltin = true, sortOrder = 1,
+            id = "coder", name = "编程助手", icon = "Code",
+            systemPrompt = "写代码", toolsEnabled = """["calculate"]""", isBuiltin = true, sortOrder = 1,
         )
         val conv = ConversationEntity(
             id = "c2", title = "RoundTrip", agentId = "coder",

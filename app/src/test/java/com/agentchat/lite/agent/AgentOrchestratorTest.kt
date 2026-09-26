@@ -34,13 +34,13 @@ class AgentOrchestratorTest {
     private val testAgent = AgentEntity(
         id = "general",
         name = "通用助手",
-        emoji = "💬",
+        icon = "SmartToy",
         systemPrompt = "你是助手",
-        toolsEnabled = true,
+        toolsEnabled = """["calculate"]""",
         isBuiltin = true,
     )
 
-    private val noToolAgent = testAgent.copy(toolsEnabled = false)
+    private val noToolAgent = testAgent.copy(toolsEnabled = "[]")
 
     private val userMessage = listOf(ChatMessage(role = "user", content = "你好"))
 
